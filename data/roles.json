@@ -1,0 +1,32 @@
+[
+  {
+    "id": "arrangement",
+    "name": "编曲",
+    "color": "#BB9AF7",
+    "sortOrder": 1
+  },
+  {
+    "id": "mixing",
+    "name": "混音",
+    "color": "#7AA2F7",
+    "sortOrder": 2
+  },
+  {
+    "id": "tuning",
+    "name": "调校",
+    "color": "#F38BA8",
+    "sortOrder": 3,
+    "subRoles": [
+      { "id": "ace", "name": "ACE Studio", "color": "#FF6B6B" },
+      { "id": "cevio", "name": "CeVIO", "color": "#4ECDC4" },
+      { "id": "sv", "name": "Synthesizer V", "color": "#96CEB4" },
+      { "id": "vocaloid", "name": "Vocaloid", "color": "#DDA0DD" }
+    ]
+  },
+  {
+    "id": "lyrics",
+    "name": "作词",
+    "color": "#9ECE6A",
+    "sortOrder": 4
+  }
+]

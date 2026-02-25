@@ -1,0 +1,81 @@
+[
+  {
+    "id": "Mian Ling",
+    "name": "眠铃",
+    "roleIds": ["tuning", "lyrics"],
+    "software": "sv",
+    "avatar": "avatars/member_ml.png",
+    "bio": "工作室运营，客服揽单/SV调校/作词，商务合作请联系。[代表作：世末歌者](https://www.bilibili.com/video/BV1qdqPYrEDr)",
+    "sortOrder": 0,
+    "isBoss": true,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/3493271848356790"},
+      {"name": "网易云音乐", "url": "https://music.163.com/"}
+    ]
+  },
+  {
+    "id": "Bei Yuan",
+    "name": "琲鸢",
+    "roleIds": ["tuning"],
+    "software": "sv",
+    "avatar": "avatars/member_by.png",
+    "bio": "Synthesizer V 调校师。",
+    "sortOrder": 1
+  },
+  {
+    "id": "Fan Qie Yu",
+    "name": "番茄鱼",
+    "roleIds": ["arrangement", "mixing"],
+    "avatar": "avatars/member_fqy.png",
+    "bio": "编曲/混音双修，擅长多风格音乐制作与后期处理。",
+    "sortOrder": 2
+  },
+  {
+    "id": "Jiang You Cu",
+    "name": "酱油醋",
+    "roleIds": ["arrangement"],
+    "avatar": "avatars/member_jyc.png",
+    "bio": "编曲师",
+    "sortOrder": 3
+  },
+  {
+    "id": "Yu Heng",
+    "name": "宇衡",
+    "roleIds": ["tuning"],
+    "software": "ace",
+    "avatar": "avatars/member_yuh.png",
+    "bio": "ACE Studio 调校师。",
+    "sortOrder": 4
+  },
+  {
+    "id": "Yun Hui",
+    "name": "云晦",
+    "roleIds": ["tuning", "lyrics"],
+    "software": "sv",
+    "avatar": "avatars/member_ynh.png",
+    "bio": "作词/调校师，Synthesizer V 专精。",
+    "sortOrder": 5
+  },
+  {
+    "id": "Tian Chen",
+    "name": "天宸",
+    "roleIds": ["arrangement", "tuning"],
+    "softwares": ["sv", "ace", "vocaloid", "cevio"],
+    "avatar": "avatars/member_tc.png",
+    "bio": "编曲/全能调校师，精通 Synthesizer V、ACE、Vocaloid、CeVIO 多引擎。",
+    "sortOrder": 6
+  },
+  {
+    "id": "Xing Chen Yun Luo",
+    "name": "星沉云落",
+    "roleIds": ["mixing", "tuning"],
+    "software": "sv",
+    "avatar": "avatars/member_xc.png",
+    "bio": "混音/调校师，擅长 Synthesizer V 人声调校与贴唱后期。",
+    "sortOrder": 7,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/173447787"},
+      {"name": "网易云音乐", "url": "https://music.163.com/"}
+    ]
+  }
+]

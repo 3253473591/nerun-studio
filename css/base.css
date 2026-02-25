@@ -1,0 +1,65 @@
+/* ========================================
+   基础重置与工具类 / Base & Utilities
+   ======================================== */
+   @import 'variables.css';
+
+   /* ===== 基础重置 ===== */
+   * { 
+     margin: 0; 
+     padding: 0; 
+     box-sizing: border-box; 
+   }
+   
+   html { 
+     scroll-behavior: smooth; 
+   }
+   
+   body {
+     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+     background-color: var(--bg-primary);
+     color: var(--text-primary);
+     line-height: 1.6;
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+   }
+   
+   /* ===== 工具类 ===== */
+   
+   /* 滚动条隐藏（导航栏横向滚动用） */
+   .scrollbar-hide {
+     -ms-overflow-style: none;
+     scrollbar-width: none;
+   }
+   
+   .scrollbar-hide::-webkit-scrollbar { 
+     display: none; 
+   }
+   
+   /* 文字截断（个人简介4行限制）- 修复兼容性警告 */
+   .line-clamp-4 {
+     display: -webkit-box;
+     /* 标准属性（未来浏览器支持）+ WebKit前缀（当前兼容） */
+     line-clamp: 4;
+     -webkit-line-clamp: 4;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+   }
+   
+   /* 背景模糊（模态框遮罩用） */
+   .modal-backdrop {
+     backdrop-filter: blur(8px);
+     -webkit-backdrop-filter: blur(8px);
+   }
+   
+   /* ===== 响应式字体 ===== */
+   @media (max-width: 639px) { 
+     html { font-size: 14px; } 
+   }
+   
+   @media (min-width: 640px) { 
+     html { font-size: 15px; } 
+   }
+   
+   @media (min-width: 1024px) { 
+     html { font-size: 16px; } 
+   }

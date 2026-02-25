@@ -1,0 +1,62 @@
+/* ========================================
+   UI组件样式
+   ======================================== */
+   @import 'variables.css';
+
+   /* 成员卡片 */
+   .card-lift {
+     transition: transform 0.3s ease, box-shadow 0.3s ease;
+   }
+   .card-lift:hover {
+     transform: translateY(-4px);
+     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+   }
+   
+   /* 头像光晕 */
+   .avatar-glow {
+     transition: box-shadow 0.3s ease;
+   }
+   .avatar-glow:hover { filter: brightness(1.1); }
+   
+   /* 骨架屏 */
+   .skeleton {
+     background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-tertiary) 50%, var(--bg-secondary) 75%);
+     background-size: 200% 100%;
+     animation: shimmer 1.5s infinite;
+   }
+   
+   /* 链接样式 */
+   .bio-link {
+     color: var(--link);
+     text-decoration: none;
+     transition: color 0.2s ease;
+   }
+   .bio-link:hover {
+     color: var(--link-hover);
+     text-decoration: underline;
+   }
+   
+   /* 工种标签 */
+   .role-badge {
+     display: inline-flex;
+     align-items: center;
+     padding: 0.25rem 0.75rem;
+     border-radius: 9999px;
+     font-size: 0.75rem;
+     font-weight: 500;
+   }
+   
+   /* 导航栏 */
+   header { box-shadow: 0 1px 0 rgba(65, 72, 104, 0.3); }
+   
+   /* 触摸设备优化 */
+   @media (pointer: coarse) {
+     .card-lift:hover { transform: none; }
+     .card-lift:active { transform: scale(0.98); }
+   }
+   
+   /* 打印 */
+   @media print {
+     header, footer, .modal-backdrop { display: none !important; }
+     body { background: white !important; color: black !important; }
+   }
