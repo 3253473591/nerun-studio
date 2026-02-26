@@ -1,7 +1,7 @@
 /* ========================================
-   UI组件样式
+   UI组件样式 / Components
    ======================================== */
-   @import 'variables.css';
+   @import "variables.css";
 
    /* 成员卡片 */
    .card-lift {
@@ -9,53 +9,60 @@
    }
    .card-lift:hover {
      transform: translateY(-4px);
-     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
    }
    
    /* 头像光晕 */
    .avatar-glow {
      transition: box-shadow 0.3s ease, filter 0.3s ease;
    }
-   .avatar-glow:hover { 
-     filter: brightness(1.1); 
+   .avatar-glow:hover {
+     filter: brightness(1.1);
    }
    
-   /* Boss/运营卡片特殊样式（新增） */
+   /* ========================================
+      🎯 Boss卡片特殊样式（全新设计）
+      ======================================== */
    .boss-card {
-     border-color: var(--boss-primary) !important;
-     box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+     background: linear-gradient(
+       135deg,
+       rgba(245, 158, 11, 0.12) 0%,
+       rgba(245, 158, 11, 0.04) 50%,
+       var(--bg-secondary) 100%
+     );
+     box-shadow: 
+       0 4px 24px rgba(245, 158, 11, 0.12),
+       inset 0 1px 0 rgba(255, 255, 255, 0.05);
+     position: relative;
    }
    
-   .boss-avatar {
-     border-color: var(--boss-primary);
-     box-shadow: 0 0 16px var(--boss-glow);
+   /* Boss头像光晕动画 */
+   @keyframes boss-pulse {
+     0%, 100% { 
+       box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4), 0 0 20px rgba(245, 158, 11, 0.3);
+       transform: scale(1);
+     }
+     50% { 
+       box-shadow: 0 0 0 8px rgba(245, 158, 11, 0), 0 0 30px rgba(245, 158, 11, 0.5);
+       transform: scale(1.02);
+     }
    }
    
-   .boss-badge {
-     background: linear-gradient(135deg, #fbbf24, #f59e0b);
-     color: white;
-     box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+   .boss-avatar-glow {
+     animation: boss-pulse 3s ease-in-out infinite;
    }
    
-   .boss-name {
-     color: var(--boss-text);
-   }
-   
-   .boss-bio {
-     color: var(--boss-text-soft);
-   }
-   
-   /* 头像点击遮罩层（新增） */
+   /* 头像点击遮罩层 */
    .avatar-overlay {
      position: absolute;
      inset: 0;
-     background-color: rgba(0, 0, 0, 0.4);
-     border-radius: 9999px;
+     background-color: rgba(0, 0, 0, 0.5);
      opacity: 0;
      transition: opacity 0.2s ease;
      display: flex;
      align-items: center;
      justify-content: center;
+     backdrop-filter: blur(2px);
    }
    
    .group:hover .avatar-overlay {
@@ -64,7 +71,12 @@
    
    /* 骨架屏 */
    .skeleton {
-     background: linear-gradient(90deg, var(--bg-secondary) 25%, var(--bg-tertiary) 50%, var(--bg-secondary) 75%);
+     background: linear-gradient(
+       90deg,
+       var(--bg-secondary) 25%,
+       var(--bg-tertiary) 50%,
+       var(--bg-secondary) 75%
+     );
      background-size: 200% 100%;
      animation: shimmer 1.5s infinite;
    }
@@ -74,6 +86,7 @@
      color: var(--link);
      text-decoration: none;
      transition: color 0.2s ease;
+     word-break: break-all;
    }
    .bio-link:hover {
      color: var(--link-hover);
@@ -91,16 +104,108 @@
    }
    
    /* 导航栏 */
-   header { box-shadow: 0 1px 0 rgba(65, 72, 104, 0.3); }
+   header {
+     box-shadow: 0 1px 0 rgba(65, 72, 104, 0.3);
+   }
    
    /* 触摸设备优化 */
    @media (pointer: coarse) {
-     .card-lift:hover { transform: none; }
-     .card-lift:active { transform: scale(0.98); }
+     .card-lift:hover {
+       transform: none;
+     }
+     .card-lift:active {
+       transform: scale(0.98);
+     }
+     /* 移动端Boss卡片点击反馈 */
+     .boss-card:active {
+       background: linear-gradient(
+         135deg,
+         rgba(245, 158, 11, 0.2) 0%,
+         var(--bg-secondary) 100%
+       );
+     }
    }
    
    /* 打印 */
    @media print {
-     header, footer, .modal-backdrop { display: none !important; }
-     body { background: white !important; color: black !important; }
+     header, footer, .modal-backdrop {
+       display: none !important;
+     }
+     body {
+       background: white !important;
+       color: black !important;
+     }
+   }
+   
+   /* ========================================
+      📱 响应式优化（移动端优先）
+      ======================================== */
+   
+   /* 小屏手机优化（iPhone SE等） */
+   @media (max-width: 375px) {
+     .boss-card {
+       padding: 1rem;
+     }
+     .boss-card img {
+       width: 6rem;
+       height: 6rem;
+     }
+   }
+   
+   /* 折叠屏适配 - 展开态 */
+   @media (screen-spanning: single-fold-vertical) {
+     .boss-card {
+       grid-column: span 2;
+     }
+   }
+   
+   /* 折叠屏适配 - 折叠态（窄屏） */
+   @media (screen-spanning: none) and (max-width: 400px) {
+     .boss-card .line-clamp-3 {
+       -webkit-line-clamp: 4;
+       line-clamp: 4;
+     }
+   }
+   
+   /* iPad竖屏优化 */
+   @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+     .boss-card {
+       padding: 1.5rem;
+     }
+   }
+   
+   /* iPad横屏 - 双栏时Boss横跨 */
+   @media (min-width: 1024px) and (orientation: landscape) {
+     .boss-card {
+       padding: 1.5rem;
+     }
+   }
+   
+   /* 超宽屏限制 */
+   @media (min-width: 1920px) {
+     main {
+       max-width: 1400px;
+     }
+     .boss-card {
+       padding: 2rem;
+     }
+   }
+   
+   /* 暗黑模式高对比度 */
+   @media (prefers-contrast: high) {
+     .boss-card {
+       border-left-width: 6px;
+       border-left-color: #fbbf24;
+     }
+   }
+   
+   /* 减少动画（无障碍支持） */
+   @media (prefers-reduced-motion: reduce) {
+     .boss-avatar-glow {
+       animation: none;
+       box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+     }
+     .card-lift {
+       transition: none;
+     }
    }

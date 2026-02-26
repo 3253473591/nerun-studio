@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
     />
     <meta
       name="description"
@@ -21,7 +21,8 @@
     ></script>
 
     <link rel="stylesheet" href="css/custom.css" />
-  </head>
+  <base target="_blank">
+</head>
   <body
     class="bg-bg-primary text-text-primary min-h-screen flex flex-col"
     x-data="studioApp()"
@@ -30,7 +31,7 @@
     <header
       class="sticky top-0 z-40 bg-bg-primary/95 backdrop-blur-md border-b border-bg-tertiary/50"
     >
-      <div class="max-w-7xl mx-auto px-4">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6">
         <div class="flex items-center justify-between py-3">
           <div class="flex items-center gap-3">
             <div
@@ -75,7 +76,7 @@
           </div>
         </div>
 
-        <nav class="flex gap-1 overflow-x-auto scrollbar-hide pb-2 -mx-4 px-4">
+        <nav class="flex gap-1 overflow-x-auto scrollbar-hide pb-2 -mx-4 px-4 sm:mx-0 sm:px-0">
           <button
             @click="selectRole('all')"
             :class="{ 
@@ -114,7 +115,7 @@
         x-transition:leave-end="opacity-0 -translate-y-2"
         class="border-t border-bg-tertiary/30 bg-bg-secondary/50 backdrop-blur-md"
       >
-        <div class="max-w-7xl mx-auto px-4 py-2">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-2">
           <div class="flex gap-2 overflow-x-auto scrollbar-hide">
             <button
               @click="selectSubRole('all')"
@@ -145,7 +146,7 @@
       </div>
     </header>
 
-    <main class="max-w-7xl mx-auto px-4 py-6 flex-1 w-full">
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex-1 w-full">
       <div
         x-show="loading"
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
@@ -180,80 +181,75 @@
         <template x-for="member in filteredMembers" :key="member.id">
           <div class="contents">
             
-            <!-- Boss/运营卡片 -->
+            <!-- 🎯 Boss/运营卡片 - 全新响应式设计 -->
             <div
               x-show="member.isBoss"
-              class="col-span-full bg-bg-secondary rounded-xl p-4 card-lift border boss-card transition-all duration-300 relative"
+              class="col-span-full bg-bg-secondary rounded-2xl p-5 sm:p-6 card-lift border-l-4 border-yellow-500 boss-card transition-all duration-300 relative overflow-hidden mb-2"
             >
-              <div class="flex items-center gap-4 h-full">
+              <!-- 背景装饰 -->
+              <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-500/10 to-transparent rounded-full blur-3xl -mr-10 -mt-10 pointer-events-none"></div>
+              
+              <!-- 移动端皇冠标识（左上角） -->
+              <div class="absolute top-3 left-3 sm:hidden z-20">
+                <div class="bg-gradient-to-r from-yellow-400 to-orange-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg flex items-center gap-1">
+                  <span>👑</span>
+                  <span>运营</span>
+                </div>
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6">
+                <!-- 头像区域 - 移动端更大 -->
                 <div 
-                  class="relative flex-shrink-0 cursor-pointer group" 
+                  class="relative flex-shrink-0 cursor-pointer group mt-6 sm:mt-0" 
                   @click.stop="handleAvatarClick(member)"
                 >
-                  <div
-                    class="absolute -top-1 -right-1 text-[10px] px-1.5 py-0.5 rounded-full font-bold shadow-lg z-20 flex items-center gap-0.5 boss-badge"
-                  >
+                  <!-- Web端左上角徽章 -->
+                  <div class="hidden sm:flex absolute -top-1 -left-1 text-xs px-2 py-0.5 rounded-full font-bold shadow-lg z-20 items-center gap-1 bg-gradient-to-r from-yellow-400 to-orange-500 text-white">
                     <span>👑</span>
                     <span>运营</span>
                   </div>
+                  
                   <img
                     :src="member.avatar"
                     :alt="member.name"
-                    class="w-16 h-16 rounded-full object-cover border-2 avatar-glow boss-avatar transition-transform group-hover:scale-105"
+                    class="w-28 h-28 sm:w-20 sm:h-20 rounded-full object-cover border-4 border-yellow-500/50 shadow-2xl transition-transform duration-300 group-hover:scale-105 boss-avatar-glow"
                     loading="lazy"
-                    @error="$event.target.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2264%22 height=%2264%22%3E%3Crect width=%2264%22 height=%2264%22 fill=%22%2324283B%22/%3E%3Ctext x=%2232%22 y=%2238%22 font-size=%2220%22 fill=%22%23565F89%22 text-anchor=%22middle%22%3E%3F%3C/text%3E%3C/svg%3E'"
+                    @error="$event.target.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect width=%2280%22 height=%2280%22 fill=%22%2324283B%22/%3E%3Ctext x=%2240%22 y=%2245%22 font-size=%2224%22 fill=%22%23565F89%22 text-anchor=%22middle%22%3E%3F%3C/text%3E%3C/svg%3E'"
                   />
-                  <div class="avatar-overlay">
-                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div class="avatar-overlay rounded-full">
+                    <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                     </svg>
                   </div>
                 </div>
 
-                <div class="flex-1 min-w-0 flex flex-col justify-center">
-                  <h3
-                    class="text-base font-semibold mb-1 boss-name"
-                    x-text="member.name"
-                  ></h3>
+                <div class="flex-1 min-w-0 text-center sm:text-left w-full">
+                  <!-- 名字 -->
+                  <h3 class="text-xl sm:text-lg font-bold mb-3 text-yellow-400 tracking-wide" x-text="member.name"></h3>
 
-                  <div class="flex flex-wrap gap-1.5 mb-1.5">
+                  <!-- 工种标签 -->
+                  <div class="flex flex-wrap gap-2 justify-center sm:justify-start mb-4 sm:mb-3">
                     <template x-for="rId in member.roleIds" :key="rId">
                       <span
-                        class="text-[10px] px-1.5 py-0.5 rounded-full"
+                        class="text-xs px-3 py-1 rounded-full font-medium"
                         :style="`background-color: ${getRoleColor(rId)}20; color: ${getRoleColor(rId)}`"
                         x-text="getRoleName(rId)"
                       ></span>
                     </template>
-
-                    <template x-if="member.roleIds.includes('tuning')">
-                      <template
-                        x-if="member.softwares && member.softwares.length > 0"
-                      >
-                        <template
-                          x-for="sw in member.softwares.slice(0, 2)"
-                          :key="sw"
-                        >
-                          <span
-                            class="text-[10px] px-1.5 py-0.5 rounded-full bg-bg-tertiary/50 text-text-secondary"
-                            x-text="getSoftwareName(sw)"
-                          ></span>
-                        </template>
-                      </template>
-                      <template
-                        x:if="member.software && (!member.softwares || member.softwares.length === 0)"
-                      >
-                        <span
-                          class="text-[10px] px-1.5 py-0.5 rounded-full bg-bg-tertiary/50 text-text-secondary"
-                          x-text="getSoftwareName(member.software)"
-                        ></span>
-                      </template>
-                    </template>
                   </div>
 
-                  <div
-                    class="text-xs line-clamp-1 boss-bio"
-                    x-html="parseBio(member.bio)"
-                  ></div>
+                  <!-- 简介 - 移动端3行，桌面端2行，可点击展开 -->
+                  <div class="relative group/bio cursor-pointer" @click="member.showFullBio = !member.showFullBio">
+                    <p class="text-sm text-text-secondary leading-relaxed transition-all duration-300"
+                       :class="member.showFullBio ? '' : 'line-clamp-3 sm:line-clamp-2'"
+                       x-html="parseBio(member.bio)">
+                    </p>
+                    <!-- 展开提示 -->
+                    <div x-show="!member.showFullBio && member.bio && member.bio.length > 60" 
+                         class="mt-1 text-xs text-yellow-500/80 sm:hidden">
+                      点击展开更多 ↓
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -261,7 +257,7 @@
             <!-- 员工标准卡片 -->
             <div
               x-show="!member.isBoss"
-              class="bg-bg-secondary rounded-xl p-4 card-lift border transition-all duration-300 relative border-bg-tertiary/30"
+              class="bg-bg-secondary rounded-xl p-4 card-lift border border-bg-tertiary/30 transition-all duration-300 relative hover:border-bg-tertiary/60"
             >
               <div class="flex flex-col items-center">
                 <div 
@@ -271,27 +267,22 @@
                   <img
                     :src="member.avatar"
                     :alt="member.name"
-                    class="w-20 h-20 rounded-full object-cover border-2 avatar-glow transition-transform group-hover:scale-105"
+                    class="w-20 h-20 rounded-full object-cover border-2 transition-transform duration-300 group-hover:scale-105"
                     :style="`border-color: ${getRoleColor(member.roleIds ? member.roleIds[0] : member.roleId)}; box-shadow: 0 0 12px ${getRoleColor(member.roleIds ? member.roleIds[0] : member.roleId)}40`"
                     loading="lazy"
                     @error="$event.target.src = 'data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect width=%2280%22 height=%2280%22 fill=%22%2324283B%22/%3E%3Ctext x=%2240%22 y=%2245%22 font-size=%2224%22 fill=%22%23565F89%22 text-anchor=%22middle%22%3E%3F%3C/text%3E%3C/svg%3E'"
                   />
-                  <div class="avatar-overlay">
+                  <div class="avatar-overlay rounded-full">
                     <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
                     </svg>
                   </div>
                 </div>
 
-                <h3
-                  class="text-base font-semibold mb-2 text-text-primary"
-                  x-text="member.name"
-                ></h3>
+                <h3 class="text-base font-semibold mb-2 text-text-primary" x-text="member.name"></h3>
 
                 <div class="flex flex-wrap gap-1 justify-center mb-3">
-                  <template
-                    x:if="member.roleIds && Array.isArray(member.roleIds)"
-                  >
+                  <template x-if="member.roleIds && Array.isArray(member.roleIds)">
                     <template x-for="rId in member.roleIds" :key="rId">
                       <span
                         class="text-xs px-2 py-0.5 rounded-full"
@@ -300,53 +291,16 @@
                       ></span>
                     </template>
                   </template>
-                  <template x:if="!member.roleIds && member.roleId">
+                  <template x-if="!member.roleIds && member.roleId">
                     <span
                       class="text-xs px-2 py-0.5 rounded-full"
                       :style="`background-color: ${getRoleColor(member.roleId)}20; color: ${getRoleColor(member.roleId)}`"
                       x-text="getRoleName(member.roleId)"
                     ></span>
                   </template>
-
-                  <template
-                    x:if="member.roleIds && member.roleIds.includes('tuning')"
-                  >
-                    <template
-                      x:if="member.softwares && member.softwares.length > 0"
-                    >
-                      <template
-                        x:for="sw in member.softwares.slice(0, 3)"
-                        :key="sw"
-                      >
-                        <span
-                          class="text-xs px-2 py-0.5 rounded-full bg-bg-tertiary/50 text-text-secondary"
-                          x-text="getSoftwareName(sw)"
-                        ></span>
-                      </template>
-                    </template>
-                    <template
-                      x:if="member.software && (!member.softwares || member.softwares.length === 0)"
-                    >
-                      <span
-                        class="text-xs px-2 py-0.5 rounded-full bg-bg-tertiary/50 text-text-secondary"
-                        x-text="getSoftwareName(member.software)"
-                      ></span>
-                    </template>
-                  </template>
-                  <template
-                    x:if="!member.roleIds && member.roleId === 'tuning'"
-                  >
-                    <span
-                      class="text-xs px-2 py-0.5 rounded-full bg-bg-tertiary/50 text-text-secondary"
-                      x-text="getSoftwareName(member.software)"
-                    ></span>
-                  </template>
                 </div>
 
-                <div
-                  class="text-sm text-center leading-relaxed line-clamp-4 text-text-secondary"
-                  x-html="parseBio(member.bio)"
-                ></div>
+                <div class="text-sm text-center leading-relaxed line-clamp-4 text-text-secondary" x-html="parseBio(member.bio)"></div>
               </div>
             </div>
             
@@ -355,10 +309,7 @@
       </div>
 
       <!-- Empty State -->
-      <div
-        x-show="!loading && !error && filteredMembers.length === 0"
-        class="text-center py-12"
-      >
+      <div x-show="!loading && !error && filteredMembers.length === 0" class="text-center py-12">
         <div class="text-6xl mb-4">🎵</div>
         <h3 class="text-xl font-semibold mb-2">暂无该分类成员</h3>
         <p class="text-text-muted">敬请期待更多创作者加入</p>
@@ -366,11 +317,11 @@
     </main>
 
     <!-- Footer -->
-    <footer class="border-t border-bg-tertiary/30 py-6 mt-auto">
-      <div class="max-w-7xl mx-auto px-4 text-center space-y-2">
+    <footer class="border-t border-bg-tertiary/30 py-6 mt-auto safe-area-bottom">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 text-center space-y-2">
         <p class="text-sm font-medium text-text-primary">Nerun工作室</p>
         <p class="text-xs text-text-muted">以歌声合成为主的音乐全案制作团队</p>
-        <div class="flex items-center justify-center gap-4 text-xs text-text-muted">
+        <div class="flex items-center justify-center gap-4 text-xs text-text-muted flex-wrap">
           <span>微信: NeurnOfficial</span>
           <span>邮箱: neruuu@qq.com</span>
         </div>
@@ -378,108 +329,33 @@
       </div>
     </footer>
 
-    <!-- WeChat Modal -->
-    <div
-      x-show="$store.wechatModal.isOpen"
-      x-transition:enter="transition ease-out duration-200"
-      x-transition:enter-start="opacity-0"
-      x-transition:enter-end="opacity-100"
-      x-transition:leave="transition ease-in duration-150"
-      x-transition:leave-start="opacity-100"
-      x-transition:leave-end="opacity-0"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style="display: none"
-    >
-      <div
-        class="absolute inset-0 bg-black/70 modal-backdrop"
-        @click="$store.wechatModal.close()"
-      ></div>
-      <div
-        class="relative bg-bg-secondary rounded-2xl p-6 max-w-sm w-full border border-bg-tertiary/50 shadow-2xl"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0 scale-95"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100 scale-100"
-        x-transition:leave-end="opacity-0 scale-95"
-      >
+    <!-- Modals（保持不变） -->
+    <div x-show="$store.wechatModal.isOpen" x-transition class="fixed inset-0 z-50 flex items-center justify-center p-4" style="display: none">
+      <div class="absolute inset-0 bg-black/70 modal-backdrop" @click="$store.wechatModal.close()"></div>
+      <div class="relative bg-bg-secondary rounded-2xl p-6 max-w-sm w-full border border-bg-tertiary/50 shadow-2xl">
         <div class="text-center">
-          <div
-            class="w-16 h-16 mx-auto mb-4 rounded-full bg-link/20 flex items-center justify-center"
-          >
-            <svg
-              class="w-8 h-8 text-link"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-              ></path>
+          <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-link/20 flex items-center justify-center">
+            <svg class="w-8 h-8 text-link" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
             </svg>
           </div>
           <h3 class="text-lg font-semibold mb-2">即将离开微信</h3>
-          <p class="text-sm text-text-secondary mb-4">
-            该链接将在外部浏览器打开，是否继续访问？
-          </p>
+          <p class="text-sm text-text-secondary mb-4">该链接将在外部浏览器打开，是否继续访问？</p>
           <div class="bg-bg-primary rounded-lg p-3 mb-4 text-left">
-            <p
-              class="text-xs text-text-muted truncate"
-              x-text="$store.wechatModal.url"
-            ></p>
+            <p class="text-xs text-text-muted truncate" x-text="$store.wechatModal.url"></p>
           </div>
           <div class="flex gap-3">
-            <button
-              @click="$store.wechatModal.close()"
-              class="flex-1 px-4 py-2 bg-bg-tertiary text-text-primary rounded-lg font-medium hover:bg-bg-tertiary/80 transition-colors"
-            >
-              取消
-            </button>
-            <button
-              @click="$store.wechatModal.copyLink()"
-              class="flex-1 px-4 py-2 bg-link/20 text-link rounded-lg font-medium hover:bg-link/30 transition-colors"
-            >
-              复制链接
-            </button>
+            <button @click="$store.wechatModal.close()" class="flex-1 px-4 py-2 bg-bg-tertiary text-text-primary rounded-lg font-medium hover:bg-bg-tertiary/80 transition-colors">取消</button>
+            <button @click="$store.wechatModal.copyLink()" class="flex-1 px-4 py-2 bg-link/20 text-link rounded-lg font-medium hover:bg-link/30 transition-colors">复制链接</button>
           </div>
-          <button
-            @click="$store.wechatModal.proceed()"
-            class="w-full mt-3 px-4 py-2 bg-link text-bg-primary rounded-lg font-medium hover:bg-link-hover transition-colors"
-          >
-            继续访问
-          </button>
+          <button @click="$store.wechatModal.proceed()" class="w-full mt-3 px-4 py-2 bg-link text-bg-primary rounded-lg font-medium hover:bg-link-hover transition-colors">继续访问</button>
         </div>
       </div>
     </div>
 
-    <!-- Homepage Selection Modal -->
-    <div
-      x-show="$store.homepageModal.isOpen"
-      x-transition:enter="transition ease-out duration-200"
-      x-transition:enter-start="opacity-0"
-      x-transition:enter-end="opacity-100"
-      x-transition:leave="transition ease-in duration-150"
-      x-transition:leave-start="opacity-100"
-      x-transition:leave-end="opacity-0"
-      class="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style="display: none"
-    >
-      <div
-        class="absolute inset-0 bg-black/70 modal-backdrop"
-        @click="$store.homepageModal.close()"
-      ></div>
-      <div
-        class="relative bg-bg-secondary rounded-2xl p-6 max-w-sm w-full border border-bg-tertiary/50 shadow-2xl"
-        x-transition:enter="transition ease-out duration-200"
-        x-transition:enter-start="opacity-0 scale-95"
-        x-transition:enter-end="opacity-100 scale-100"
-        x-transition:leave="transition ease-in duration-150"
-        x-transition:leave-start="opacity-100 scale-100"
-        x-transition:leave-end="opacity-0 scale-95"
-      >
+    <div x-show="$store.homepageModal.isOpen" x-transition class="fixed inset-0 z-50 flex items-center justify-center p-4" style="display: none">
+      <div class="absolute inset-0 bg-black/70 modal-backdrop" @click="$store.homepageModal.close()"></div>
+      <div class="relative bg-bg-secondary rounded-2xl p-6 max-w-sm w-full border border-bg-tertiary/50 shadow-2xl">
         <div class="text-center mb-4">
           <div class="w-12 h-12 mx-auto mb-3 rounded-full bg-link/20 flex items-center justify-center">
             <svg class="w-6 h-6 text-link" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -489,13 +365,9 @@
           <h3 class="text-lg font-semibold mb-1" x-text="$store.homepageModal.memberName"></h3>
           <p class="text-sm text-text-muted">请选择要访问的主页</p>
         </div>
-        
         <div class="space-y-2">
           <template x-for="link in $store.homepageModal.links" :key="link.url">
-            <button
-              @click="$store.homepageModal.navigate(link.url)"
-              class="w-full px-4 py-3 bg-bg-primary hover:bg-bg-tertiary/50 rounded-xl text-left transition-colors flex items-center justify-between group"
-            >
+            <button @click="$store.homepageModal.navigate(link.url)" class="w-full px-4 py-3 bg-bg-primary hover:bg-bg-tertiary/50 rounded-xl text-left transition-colors flex items-center justify-between group">
               <span class="font-medium text-text-primary" x-text="link.name"></span>
               <svg class="w-5 h-5 text-text-muted group-hover:text-link transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -503,28 +375,12 @@
             </button>
           </template>
         </div>
-
-        <button
-          @click="$store.homepageModal.close()"
-          class="w-full mt-4 px-4 py-2 text-sm text-text-muted hover:text-text-primary transition-colors"
-        >
-          取消
-        </button>
+        <button @click="$store.homepageModal.close()" class="w-full mt-4 px-4 py-2 text-sm text-text-muted hover:text-text-primary transition-colors">取消</button>
       </div>
     </div>
 
     <!-- Toast -->
-    <div
-      x-show="$store.toast.isVisible"
-      x-transition:enter="transition ease-out duration-200"
-      x-transition:enter-start="opacity-0 translate-y-4"
-      x-transition:enter-end="opacity-100 translate-y-0"
-      x-transition:leave="transition ease-in duration-150"
-      x-transition:leave-start="opacity-100 translate-y-0"
-      x-transition:leave-end="opacity-0 translate-y-4"
-      class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-bg-secondary text-text-primary rounded-lg shadow-lg border border-bg-tertiary/50"
-      style="display: none"
-    >
+    <div x-show="$store.toast.isVisible" x-transition class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 px-4 py-2 bg-bg-secondary text-text-primary rounded-lg shadow-lg border border-bg-tertiary/50" style="display: none">
       <span x-text="$store.toast.message"></span>
     </div>
 

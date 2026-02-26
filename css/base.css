@@ -1,65 +1,143 @@
 /* ========================================
    基础重置与工具类 / Base & Utilities
    ======================================== */
-   @import 'variables.css';
+@import "variables.css";
 
-   /* ===== 基础重置 ===== */
-   * { 
-     margin: 0; 
-     padding: 0; 
-     box-sizing: border-box; 
-   }
-   
-   html { 
-     scroll-behavior: smooth; 
-   }
-   
-   body {
-     font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-     background-color: var(--bg-primary);
-     color: var(--text-primary);
-     line-height: 1.6;
-     -webkit-font-smoothing: antialiased;
-     -moz-osx-font-smoothing: grayscale;
-   }
-   
-   /* ===== 工具类 ===== */
-   
-   /* 滚动条隐藏（导航栏横向滚动用） */
-   .scrollbar-hide {
-     -ms-overflow-style: none;
-     scrollbar-width: none;
-   }
-   
-   .scrollbar-hide::-webkit-scrollbar { 
-     display: none; 
-   }
-   
-   /* 文字截断（个人简介4行限制）- 修复兼容性警告 */
-   .line-clamp-4 {
-     display: -webkit-box;
-     /* 标准属性（未来浏览器支持）+ WebKit前缀（当前兼容） */
-     line-clamp: 4;
-     -webkit-line-clamp: 4;
-     -webkit-box-orient: vertical;
-     overflow: hidden;
-   }
-   
-   /* 背景模糊（模态框遮罩用） */
-   .modal-backdrop {
-     backdrop-filter: blur(8px);
-     -webkit-backdrop-filter: blur(8px);
-   }
-   
-   /* ===== 响应式字体 ===== */
-   @media (max-width: 639px) { 
-     html { font-size: 14px; } 
-   }
-   
-   @media (min-width: 640px) { 
-     html { font-size: 15px; } 
-   }
-   
-   @media (min-width: 1024px) { 
-     html { font-size: 16px; } 
-   }
+/* ===== 基础重置 ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    system-ui,
+    -apple-system,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ===== 工具类 ===== */
+
+/* 滚动条隐藏（导航栏横向滚动用） */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* 文字截断（个人简介4行限制）- 修复兼容性警告 */
+.line-clamp-4 {
+  display: -webkit-box;
+  /* 标准属性（未来浏览器支持）+ WebKit前缀（当前兼容） */
+  line-clamp: 4;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* 背景模糊（模态框遮罩用） */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* ===== 响应式字体 ===== */
+@media (max-width: 639px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+footer {
+  padding-bottom: env(safe-area-inset-bottom, 1rem); /* 适配 iPhone 横条 */
+}
+
+/* 针对折叠屏底部手势条 */
+@supports (padding-bottom: max(0px)) {
+  footer {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* ========================================
+   响应式字体与布局（新增）
+   ======================================== */
+
+/* 基础字体大小 - 移动端更大以便阅读 */
+@media (max-width: 639px) {
+  html {
+    font-size: 16px; /* 原来是14px，增大以便阅读简介 */
+  }
+}
+
+@media (min-width: 640px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+/* 安全区域适配（iPhone刘海屏/横条） */
+.safe-area-bottom {
+  padding-bottom: env(safe-area-inset-bottom, 1rem);
+}
+
+@supports (padding-bottom: max(0px)) {
+  .safe-area-bottom {
+    padding-bottom: max(1.5rem, env(safe-area-inset-bottom));
+  }
+}
+
+/* 折叠屏环境变量支持（双屏设备） */
+@supports (screen-spanning: single-fold-vertical) {
+  .grid {
+    /* 折叠屏展开时调整间距 */
+    gap: max(1rem, env(fold-width));
+  }
+}
+
+/* 横屏手机优化 */
+@media (max-height: 500px) and (orientation: landscape) {
+  header {
+    position: relative;
+  }
+  .boss-card {
+    flex-direction: row;
+  }
+  .boss-card img {
+    width: 5rem;
+    height: 5rem;
+  }
+}
