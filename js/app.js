@@ -223,10 +223,11 @@ function studioApp() {
     },
 
     loadDefaultData() {
+      // 默认角色配置（含新增工种）
       this.roles = [
         { id: "arrangement", name: "编曲", color: "#BB9AF7", sortOrder: 1 },
-        { id: "mixing", name: "混音", color: "#7AA2F7", sortOrder: 2 },
-        { id: "vocal", name: "唱见", color: "#F7768E", sortOrder: 3 },
+        { id: "composition", name: "作曲", color: "#E0AF68", sortOrder: 2 },
+        { id: "mixing", name: "混音", color: "#7AA2F7", sortOrder: 3 },
         {
           id: "tuning",
           name: "调校",
@@ -240,19 +241,177 @@ function studioApp() {
           ],
         },
         { id: "lyrics", name: "作词", color: "#9ECE6A", sortOrder: 5 },
+        { id: "harmony", name: "和声编写", color: "#73DACA", sortOrder: 6 },
+        { id: "video-editing", name: "混剪", color: "#FF9E64", sortOrder: 7 },
+        { id: "pv", name: "PV制作", color: "#F7768E", sortOrder: 8 },
+        { id: "subtitle", name: "特效字幕", color: "#B4F9F8", sortOrder: 9 },
+        { id: "illustration", name: "立绘/插画", color: "#C0CAF5", sortOrder: 10 },
+        { id: "singer", name: "唱见", color: "#F43F5E", sortOrder: 11 },
+        { id: "cv", name: "CV", color: "#A78BFA", sortOrder: 12 },
       ];
 
+      // 默认成员数据（按拼音首字母排序，Neruno作为Boss排最前）
       this.members = [
         {
-          id: "demo_001",
-          name: "示例成员",
-          roleIds: ["arrangement"],
-          avatar:
-            "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2280%22 height=%2280%22%3E%3Crect width=%2280%22 height=%2280%22 fill=%22%23BB9AF7%22/%3E%3Ctext x=%2240%22 y=%2245%22 font-size=%2224%22 fill=%22white%22 text-anchor=%22middle%22%3EA%3C/text%3E%3C/svg%3E",
-          bio: "示例数据，请检查 members.json 路径。",
-          sortOrder: 1,
+          id: "Mian Ling",
+          name: "眠铃Neruno",
+          roleIds: ["lyrics", "tuning", "harmony"],
+          software: "sv",
+          avatar: "images/members/mian-ling.jpg",
+          bio: "作词/调校/和声编写，工作室负责人兼对接，中/日/英/韩多语种作词。商务合作请联系微信 NeurnOfficial",
+          sortOrder: 0,
+          isBoss: true,
+          homepages: [
+            {"name": "哔哩哔哩", "url": "https://space.bilibili.com/3493271848356790"},
+            {"name": "网易云音乐", "url": "https://music.163.com/#/user/home?id=3493271848356790"}
+          ]
         },
+        {
+          id: "Bei Yuan",
+          name: "琲鸢Sayaka",
+          roleIds: ["tuning"],
+          softwares: ["ace", "sv"],
+          avatar: "images/members/bei-yuan.jpg",
+          bio: "调校，擅长ACE Studio/Synthesizer V等多引擎调校",
+          sortOrder: 1
+        },
+        {
+          id: "Cubic J",
+          name: "Cubic_J杰",
+          roleIds: ["illustration"],
+          avatar: "images/members/cubic-j.jpg",
+          bio: "立绘/插画，原画师，多次参与游戏项目制作，擅长高精度插画及立绘",
+          sortOrder: 2
+        },
+        {
+          id: "Fan Fan Fan Qie Yu",
+          name: "番番番番番茄鱼",
+          roleIds: ["composition", "arrangement", "tuning", "mixing"],
+          software: "ace",
+          avatar: "images/members/fan-fan-fan-qie-yu.jpg",
+          bio: "作曲/编曲/调校/混音，擅长多种风格音乐制作、ACE Studio调校与后期处理",
+          sortOrder: 3
+        },
+        {
+          id: "Ha Nuo",
+          name: "哈娜诺诺",
+          roleIds: ["video-editing", "pv"],
+          avatar: "images/members/ha-nuo-nuo.jpg",
+          bio: "混剪/PV制作/AE特效，擅长PV制作及动态制作",
+          sortOrder: 4
+        },
+        {
+          id: "Hui",
+          name: "绘",
+          roleIds: ["composition", "lyrics"],
+          avatar: "images/members/hui.jpg",
+          bio: "作曲/作词，真实文化负责人，擅长日语作词及作曲",
+          sortOrder: 5,
+          homepages: [
+            {"name": "哔哩哔哩", "url": "https://space.bilibili.com/"}
+          ]
+        },
+        {
+          id: "Hun Yu Luo",
+          name: "魂与洛",
+          roleIds: ["video-editing"],
+          avatar: "images/members/hun-yu-luo.jpg",
+          bio: "混剪，擅长MAD混剪",
+          sortOrder: 6
+        },
+        {
+          id: "Jiang You Cu",
+          name: "酱油醋l",
+          roleIds: ["composition", "arrangement"],
+          avatar: "images/members/jiang-you-cu.jpg",
+          bio: "作曲/编曲，擅长流行风格音乐创作与编曲制作",
+          sortOrder: 7
+        },
+        {
+          id: "Mu Yun",
+          name: "沐芸MoRocy",
+          roleIds: ["video-editing", "subtitle"],
+          avatar: "images/members/mu-yun.jpg",
+          bio: "混剪/特效字幕，擅长MAD混剪及字幕制作",
+          sortOrder: 8
+        },
+        {
+          id: "Neku",
+          name: "Neku",
+          roleIds: ["composition", "arrangement", "lyrics"],
+          avatar: "images/members/neku.jpg",
+          bio: "作曲/编曲/日语作词，擅长高精编曲及日语作词",
+          sortOrder: 9
+        },
+        {
+          id: "Shang Tian",
+          name: "上天给你摘星星呀",
+          roleIds: ["lyrics", "cv", "singer", "mixing"],
+          avatar: "images/members/shang-tian.jpg",
+          bio: "地偶作词/CV/唱见/混音，擅长地偶中日英文作词及地偶混音制作",
+          sortOrder: 10
+        },
+        {
+          id: "Tian Chen",
+          name: "天宸Official",
+          roleIds: ["composition", "arrangement", "tuning"],
+          softwares: ["vocaloid", "ace", "sv"],
+          avatar: "images/members/tian-chen.jpg",
+          bio: "作曲/编曲/调校，擅长VOCALOID/ACE Studio/Synthesizer V等多引擎调校及多种风格编曲",
+          sortOrder: 11
+        },
+        {
+          id: "Xing Chen",
+          name: "星沉云落",
+          roleIds: ["tuning", "mixing"],
+          software: "sv",
+          avatar: "images/members/xing-chen.jpg",
+          bio: "调校/混音，擅长Synthesizer V人声调校与贴唱后期",
+          sortOrder: 12,
+          homepages: [
+            {"name": "哔哩哔哩", "url": "https://space.bilibili.com/173447787"}
+          ]
+        },
+        {
+          id: "Yu Heng",
+          name: "宇衡Yu_H",
+          roleIds: ["tuning"],
+          softwares: ["vocaloid", "ace"],
+          avatar: "images/members/yu-heng.jpg",
+          bio: "调校，擅长VOCALOID/ACE Studio调校",
+          sortOrder: 13
+        },
+        {
+          id: "Yun Hui",
+          name: "云晦",
+          roleIds: ["lyrics", "tuning"],
+          software: "sv",
+          avatar: "images/members/yun-hui.jpg",
+          bio: "作词/调校，擅长Synthesizer V人声调校",
+          sortOrder: 14
+        }
       ];
+    },
+
+    async copyToClipboard(text, successMessage) {
+      try {
+        await navigator.clipboard.writeText(text);
+        Alpine.store("toast").show(successMessage);
+      } catch {
+        const textarea = document.createElement("textarea");
+        textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
+        document.body.appendChild(textarea);
+        textarea.select();
+        try {
+          document.execCommand('copy');
+          Alpine.store("toast").show(successMessage);
+        } catch {
+          Alpine.store("toast").show("复制失败，请手动复制");
+        }
+        document.body.removeChild(textarea);
+      }
     },
 
     handleAvatarClick(member) {

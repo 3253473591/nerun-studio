@@ -11,10 +11,8 @@
     /* 工种专属色 */
     --role-arrangement: #BB9AF7;
     --role-mixing: #7AA2F7;
-    --role-vocal: #F7768E;
+    --role-tuning: #F38BA8;
     --role-lyrics: #9ECE6A;
-    --role-mastering: #E0AF68;
-    --role-pv: #2AC3DE;
     
     /* 文字 */
     --text-primary: #C0CAF5;
@@ -24,4 +22,10 @@
     /* 功能色 */
     --link: #2AC3DE;
     --link-hover: #73DACA;
+
+      /* Boss/运营特殊色 */
+    --boss-primary: #f59e0b;
+    --boss-glow: rgba(245, 158, 11, 0.5);
+    --boss-text: #fbbf24;
+    --boss-text-soft: #fde68a;
   }

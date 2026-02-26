@@ -6,16 +6,22 @@
     "sortOrder": 1
   },
   {
+    "id": "composition",
+    "name": "作曲",
+    "color": "#E0AF68",
+    "sortOrder": 2
+  },
+  {
     "id": "mixing",
     "name": "混音",
     "color": "#7AA2F7",
-    "sortOrder": 2
+    "sortOrder": 3
   },
   {
     "id": "tuning",
     "name": "调校",
     "color": "#F38BA8",
-    "sortOrder": 3,
+    "sortOrder": 4,
     "subRoles": [
       { "id": "ace", "name": "ACE Studio", "color": "#FF6B6B" },
       { "id": "cevio", "name": "CeVIO", "color": "#4ECDC4" },
@@ -27,6 +33,30 @@
     "id": "lyrics",
     "name": "作词",
     "color": "#9ECE6A",
-    "sortOrder": 4
+    "sortOrder": 5
+  },
+  {
+    "id": "harmony",
+    "name": "和声编写",
+    "color": "#73DACA",
+    "sortOrder": 6
+  },
+  {
+    "id": "video-editing",
+    "name": "混剪",
+    "color": "#FF9E64",
+    "sortOrder": 7
+  },
+  {
+    "id": "pv",
+    "name": "PV制作",
+    "color": "#F7768E",
+    "sortOrder": 8
+  },
+  {
+    "id": "illustration",
+    "name": "立绘/插画",
+    "color": "#C0CAF5",
+    "sortOrder": 9
   }
 ]

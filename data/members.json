@@ -1,81 +1,177 @@
 [
   {
     "id": "Mian Ling",
-    "name": "眠铃",
-    "roleIds": ["tuning", "lyrics"],
+    "name": "眠铃Neruno",
+    "roleIds": ["lyrics", "tuning", "harmony"],
     "software": "sv",
-    "avatar": "avatars/member_ml.png",
-    "bio": "工作室运营，客服揽单/SV调校/作词，商务合作请联系。[代表作：世末歌者](https://www.bilibili.com/video/BV1qdqPYrEDr)",
+    "avatar": "images/members/2月26日.gif",
+    "bio": "作词/调校/和声编写，工作室负责人兼对接，中/日/英/韩多语种作词。商务合作请联系微信 NeurnOfficial[代表作：世末歌者](https://www.bilibili.com/video/BV1qdqPYrEDr)",
     "sortOrder": 0,
     "isBoss": true,
     "homepages": [
       {"name": "哔哩哔哩", "url": "https://space.bilibili.com/3493271848356790"},
-      {"name": "网易云音乐", "url": "https://music.163.com/"}
+      {"name": "网易云音乐", "url": "https://music.163.com/#/artist?id=56470132"}
     ]
   },
   {
     "id": "Bei Yuan",
-    "name": "琲鸢",
+    "name": "琲鸢Sayaka",
     "roleIds": ["tuning"],
-    "software": "sv",
-    "avatar": "avatars/member_by.png",
-    "bio": "Synthesizer V 调校师。",
-    "sortOrder": 1
+    "softwares": ["ace", "sv"],
+    "avatar": "images/members/琲鸢.jpg",
+    "bio": "调校，擅长ACE Studio/Synthesizer V等多引擎调校",
+    "sortOrder": 1,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/58534834"},
+      {"name": "网易云音乐", "url": "https://music.163.com/#/artist?id=35655048"}
+    ]
   },
   {
-    "id": "Fan Qie Yu",
-    "name": "番茄鱼",
-    "roleIds": ["arrangement", "mixing"],
-    "avatar": "avatars/member_fqy.png",
-    "bio": "编曲/混音双修，擅长多风格音乐制作与后期处理。",
-    "sortOrder": 2
+    "id": "Cubic J",
+    "name": "Cubic_J杰",
+    "roleIds": ["illustration"],
+    "avatar": "images/members/cubic-j.jpg",
+    "bio": "立绘/插画，原画师，多次参与游戏项目制作，擅长高精度插画及立绘",
+    "sortOrder": 2,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/18217759"}
+    ]
+  },
+  {
+    "id": "Fan Fan Fan Qie Yu",
+    "name": "番番番番番茄鱼",
+    "roleIds": ["composition", "arrangement", "tuning", "mixing"],
+    "avatar": "images/members/番茄鱼.jpg",
+    "bio": "作曲/编曲/调校/混音，擅长多种风格音乐制作、ACE Studio调校与后期处理",
+    "sortOrder": 3,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/81698687"}
+    ]
+  },
+  {
+    "id": "Ha Nuo",
+    "name": "哈娜诺诺",
+    "roleIds": ["video-editing", "pv"],
+    "avatar": "images/members/ha-nuo-nuo.jpg",
+    "bio": "混剪/PV制作/AE特效，擅长PV制作及动态制作",
+    "sortOrder": 4,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/351983219"}
+    ]
+  },
+  {
+    "id": "Hui",
+    "name": "绘",
+    "roleIds": ["composition", "lyrics"],
+    "avatar": "images/members/hui.jpg",
+    "bio": "作曲/作词，真实文化负责人，擅长日语作词及作曲",
+    "sortOrder": 5,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/"}
+    ]
+  },
+  {
+    "id": "Hun Yu Luo",
+    "name": "魂与洛",
+    "roleIds": ["video-editing"],
+    "avatar": "images/members/hun-yu-luo.jpg",
+    "bio": "混剪，擅长MAD混剪",
+    "sortOrder": 6,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/399082041"}
+    ]
   },
   {
     "id": "Jiang You Cu",
-    "name": "酱油醋",
-    "roleIds": ["arrangement"],
-    "avatar": "avatars/member_jyc.png",
+    "name": "酱油醋l",
+    "roleIds": ["composition", "arrangement"],
+    "avatar": "images/members/酱油醋.jpg",
     "bio": "编曲师",
-    "sortOrder": 3
+    "sortOrder": 7,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/90149174"}
+    ]
   },
   {
-    "id": "Yu Heng",
-    "name": "宇衡",
-    "roleIds": ["tuning"],
-    "software": "ace",
-    "avatar": "avatars/member_yuh.png",
-    "bio": "ACE Studio 调校师。",
-    "sortOrder": 4
+    "id": "Mu Yun",
+    "name": "沐芸MoRocy",
+    "roleIds": ["video-editing", "subtitle"],
+    "avatar": "images/members/沐芸.jpg",
+    "bio": "混剪/特效字幕，擅长MAD混剪及字幕制作",
+    "sortOrder": 8,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/252998260"}
+    ]
   },
   {
-    "id": "Yun Hui",
-    "name": "云晦",
-    "roleIds": ["tuning", "lyrics"],
-    "software": "sv",
-    "avatar": "avatars/member_ynh.png",
-    "bio": "作词/调校师，Synthesizer V 专精。",
-    "sortOrder": 5
+    "id": "Neku",
+    "name": "Neku",
+    "roleIds": ["composition", "arrangement", "lyrics"],
+    "avatar": "images/members/neku.jpg",
+    "bio": "作曲/编曲/日语作词，擅长高精编曲及日语作词",
+    "sortOrder": 9
   },
   {
-    "id": "Tian Chen",
-    "name": "天宸",
-    "roleIds": ["arrangement", "tuning"],
-    "softwares": ["sv", "ace", "vocaloid", "cevio"],
-    "avatar": "avatars/member_tc.png",
-    "bio": "编曲/全能调校师，精通 Synthesizer V、ACE、Vocaloid、CeVIO 多引擎。",
-    "sortOrder": 6
+    "id": "Shang Tian",
+    "name": "上天给你摘星星呀",
+    "roleIds": ["lyrics", "cv", "singer", "mixing"],
+    "avatar": "images/members/shang-tian.jpg",
+    "bio": "地偶作词/CV/唱见/混音，擅长地偶中日英文作词及地偶混音制作",
+    "sortOrder": 10,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/2297742"}
+    ]
   },
   {
     "id": "Xing Chen Yun Luo",
     "name": "星沉云落",
     "roleIds": ["mixing", "tuning"],
     "software": "sv",
-    "avatar": "avatars/member_xc.png",
+    "avatar": "images/members/星沉云落.jpg",
     "bio": "混音/调校师，擅长 Synthesizer V 人声调校与贴唱后期。",
-    "sortOrder": 7,
+    "sortOrder": 11,
     "homepages": [
       {"name": "哔哩哔哩", "url": "https://space.bilibili.com/173447787"},
-      {"name": "网易云音乐", "url": "https://music.163.com/"}
+      {"name": "网易云音乐", "url": "https://music.163.com/#/artist?id=94683718"}
+    ]
+  },
+  {
+    "id": "Tian Chen",
+    "name": "天宸Official",
+    "roleIds": ["composition", "arrangement", "tuning"],
+    "softwares": ["sv", "ace", "vocaloid"],
+    "avatar": "images/members/天宸.jpg",
+    "bio": "作曲/编曲/调校，擅长VOCALOID/ACE Studio/Synthesizer V等多引擎调校及多种风格编曲",
+    "sortOrder": 12,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/1771185279"},
+      {"name": "网易云音乐", "url": "https://music.163.com/#/artist?id=98391061"}
+    ]
+  },
+  {
+    "id": "Yu Heng",
+    "name": "宇衡Yu_H",
+    "roleIds": ["tuning"],
+    "software": "ace",
+    "avatar": "images/members/宇衡.jpg",
+    "bio": "调校，擅长VOCALOID/ACE Studio调校",
+    "sortOrder": 13,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/94898001"},
+      {"name": "网易云音乐", "url": "https://music.163.com/#/artist?id=55879118"}
+    ]
+  },
+  {
+    "id": "Yun Hui",
+    "name": "云晦",
+    "roleIds": ["tuning", "lyrics"],
+    "software": "sv",
+    "avatar": "images/members/云晦.jpg",
+    "bio": "作词/调校，擅长Synthesizer V人声调校",
+    "sortOrder": 14,
+    "homepages": [
+      {"name": "哔哩哔哩", "url": "https://space.bilibili.com/1986561987"},
+      {"name": "网易云音乐", "url": "https://music.163.com/#/artist?id=60005482"}
     ]
   }
 ]

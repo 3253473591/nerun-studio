@@ -14,9 +14,53 @@
    
    /* 头像光晕 */
    .avatar-glow {
-     transition: box-shadow 0.3s ease;
+     transition: box-shadow 0.3s ease, filter 0.3s ease;
    }
-   .avatar-glow:hover { filter: brightness(1.1); }
+   .avatar-glow:hover { 
+     filter: brightness(1.1); 
+   }
+   
+   /* Boss/运营卡片特殊样式（新增） */
+   .boss-card {
+     border-color: var(--boss-primary) !important;
+     box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+   }
+   
+   .boss-avatar {
+     border-color: var(--boss-primary);
+     box-shadow: 0 0 16px var(--boss-glow);
+   }
+   
+   .boss-badge {
+     background: linear-gradient(135deg, #fbbf24, #f59e0b);
+     color: white;
+     box-shadow: 0 2px 8px rgba(245, 158, 11, 0.4);
+   }
+   
+   .boss-name {
+     color: var(--boss-text);
+   }
+   
+   .boss-bio {
+     color: var(--boss-text-soft);
+   }
+   
+   /* 头像点击遮罩层（新增） */
+   .avatar-overlay {
+     position: absolute;
+     inset: 0;
+     background-color: rgba(0, 0, 0, 0.4);
+     border-radius: 9999px;
+     opacity: 0;
+     transition: opacity 0.2s ease;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+   }
+   
+   .group:hover .avatar-overlay {
+     opacity: 1;
+   }
    
    /* 骨架屏 */
    .skeleton {
