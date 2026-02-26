@@ -1,62 +1,49 @@
 [
   {
-    "id": "arrangement",
-    "name": "编曲",
-    "color": "#BB9AF7",
-    "sortOrder": 1
-  },
-  {
-    "id": "composition",
-    "name": "作曲",
-    "color": "#E0AF68",
-    "sortOrder": 2
-  },
-  {
-    "id": "mixing",
-    "name": "混音",
-    "color": "#7AA2F7",
-    "sortOrder": 3
-  },
-  {
-    "id": "tuning",
-    "name": "调校",
-    "color": "#F38BA8",
-    "sortOrder": 4,
-    "subRoles": [
-      { "id": "ace", "name": "ACE Studio", "color": "#FF6B6B" },
-      { "id": "cevio", "name": "CeVIO", "color": "#4ECDC4" },
-      { "id": "sv", "name": "Synthesizer V", "color": "#96CEB4" },
-      { "id": "vocaloid", "name": "Vocaloid", "color": "#DDA0DD" }
+    "id": "music",
+    "name": "音乐部",
+    "type": "department",
+    "sortOrder": 1,
+    "roles": [
+      { "id": "arrangement", "name": "编曲", "color": "#BB9AF7", "sortOrder": 1 },
+      { "id": "composition", "name": "作曲", "color": "#E0AF68", "sortOrder": 2 },
+      { "id": "mixing", "name": "混音", "color": "#7AA2F7", "sortOrder": 3 },
+      { 
+        "id": "tuning", 
+        "name": "调校", 
+        "color": "#F38BA8", 
+        "sortOrder": 4,
+        "softwares": [
+          { "id": "ace", "name": "ACE Studio", "color": "#FF6B6B" },
+          { "id": "cevio", "name": "CeVIO", "color": "#4ECDC4" },
+          { "id": "sv", "name": "Synthesizer V", "color": "#96CEB4" },
+          { "id": "utau", "name": "UTAU", "color": "#FFD93D" },
+          { "id": "vocaloid", "name": "Vocaloid", "color": "#DDA0DD" }
+        ]
+      },
+      { "id": "lyrics", "name": "作词", "color": "#9ECE6A", "sortOrder": 5 },
+      { "id": "harmony", "name": "和声编写", "color": "#73DACA", "sortOrder": 6 }
     ]
   },
   {
-    "id": "lyrics",
-    "name": "作词",
-    "color": "#9ECE6A",
-    "sortOrder": 5
+    "id": "video",
+    "name": "视频部",
+    "type": "department",
+    "sortOrder": 2,
+    "roles": [
+      { "id": "video-editing", "name": "混剪", "color": "#FF9E64", "sortOrder": 1 },
+      { "id": "pv", "name": "PV制作", "color": "#F7768E", "sortOrder": 2 },
+      { "id": "ae-effects", "name": "AE特效", "color": "#FF6B9D", "sortOrder": 3 },
+      { "id": "subtitle", "name": "字幕特效", "color": "#B4F9F8", "sortOrder": 4 }
+    ]
   },
   {
-    "id": "harmony",
-    "name": "和声编写",
-    "color": "#73DACA",
-    "sortOrder": 6
-  },
-  {
-    "id": "video-editing",
-    "name": "混剪",
-    "color": "#FF9E64",
-    "sortOrder": 7
-  },
-  {
-    "id": "pv",
-    "name": "PV制作",
-    "color": "#F7768E",
-    "sortOrder": 8
-  },
-  {
-    "id": "illustration",
-    "name": "立绘/插画",
-    "color": "#C0CAF5",
-    "sortOrder": 9
+    "id": "art",
+    "name": "美术部",
+    "type": "department",
+    "sortOrder": 3,
+    "roles": [
+      { "id": "illustration", "name": "立绘/插画", "color": "#C0CAF5", "sortOrder": 1 }
+    ]
   }
 ]

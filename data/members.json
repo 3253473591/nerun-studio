@@ -5,7 +5,7 @@
     "roleIds": ["lyrics", "tuning", "harmony"],
     "software": "sv",
     "avatar": "images/members/眠铃.jpg",
-    "bio": "作词/调校/和声编写，工作室负责人兼对接，中/日/英/韩多语种作词。商务合作请联系微信 NeurnOfficial[代表作：世末歌者](https://www.bilibili.com/video/BV1qdqPYrEDr)",
+    "bio": "作词/调校/和声编写，工作室负责人兼对接，中/日/英/韩多语种作词。商务合作请联系微信 NeurnOfficial\n代表作：[世末歌者](https://www.bilibili.com/video/BV1qdqPYrEDr)",
     "sortOrder": 0,
     "isBoss": true,
     "homepages": [
@@ -51,7 +51,7 @@
   {
     "id": "Ha Nuo",
     "name": "哈娜诺诺",
-    "roleIds": ["video-editing", "pv"],
+    "roleIds": ["video-editing", "pv", "ae-effects"],
     "avatar": "images/members/ha-nuo-nuo.jpg",
     "bio": "混剪/PV制作/AE特效，擅长PV制作及动态制作",
     "sortOrder": 4,

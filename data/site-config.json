@@ -1,0 +1,32 @@
+
+{
+    "site": {
+      "name": "Nerun工作室",
+      "tagline": "以歌声合成为主的音乐全案制作团队",
+      "title": "Nerun工作室 | 音乐全案制作",
+      "copyright": "© 2026 Nerun Studio. All rights reserved."
+    },
+    "contact": {
+      "wechat": {
+        "id": "NeurnOfficial",
+        "label": "微信"
+      },
+      "email": {
+        "address": "neruuu@qq.com",
+        "label": "邮箱"
+      }
+    },
+    "boss": {
+      "badge": {
+        "icon": "👑",
+        "text": "运营"
+      },
+      "borderColor": "#eab308"
+    },
+    "navigation": {
+      "all": "全部",
+      "allEngines": "全部引擎",
+      "selectHomepage": "请选择要访问的主页",
+      "expandBio": "点击展开更多"
+    }
+  }

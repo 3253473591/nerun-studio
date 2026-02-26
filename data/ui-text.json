@@ -1,0 +1,35 @@
+{
+    "loading": {
+      "errorTitle": "加载失败",
+      "retry": "重新加载"
+    },
+    "emptyState": {
+      "icon": "🎵",
+      "title": "暂无该分类成员",
+      "subtitle": "敬请期待更多创作者加入"
+    },
+    "toast": {
+      "wechatCopied": "微信号已复制",
+      "emailCopied": "邮箱已复制",
+      "linkCopied": "链接已复制到剪贴板",
+      "copyFailed": "复制失败，请手动复制",
+      "noHomepage": "该成员暂无主页链接"
+    },
+    "modal": {
+      "wechat": {
+        "title": "即将离开微信",
+        "message": "该链接将在外部浏览器打开，是否继续访问？",
+        "cancel": "取消",
+        "copyLink": "复制链接",
+        "continue": "继续访问"
+      },
+      "homepage": {
+        "title": "请选择要访问的主页",
+        "cancel": "取消"
+      }
+    },
+    "errors": {
+      "loadDept": "加载部门数据失败",
+      "loadMember": "加载成员数据失败"
+    }
+  }
