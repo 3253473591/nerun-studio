@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>404 | Nerun工作室</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg-primary: #1A1B26;
+      --bg-secondary: #24283B;
+      --bg-tertiary: #414868;
+      --text-primary: #C0CAF5;
+      --text-secondary: #7AA2F7;
+      --link: #2AC3DE;
+      --accent: #BB9AF7;
+    }
+    
+    * {
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      overflow-x: hidden;
+      /* 为底部固定版权栏预留空间 */
+      padding-bottom: 80px;
+    }
+
+    /* 404 渐变文字 */
+    .sleeping-404 {
+      font-size: clamp(3rem, 15vw, 8rem);
+      font-weight: bold;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--text-secondary) 0%, var(--accent) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      position: relative;
+      display: inline-block;
+      animation: breathe 4s ease-in-out infinite;
+      overflow-wrap: break-word;
+      word-break: break-all;
+    }
+
+    @keyframes breathe {
+      0%, 100% { transform: scale(1); opacity: 0.9; }
+      50% { transform: scale(1.02); opacity: 1; }
+    }
+
+    .moon {
+      font-size: clamp(2.5rem, 8vw, 4rem);
+      animation: rock 6s ease-in-out infinite;
+      display: inline-block;
+      filter: drop-shadow(0 0 20px rgba(122, 162, 247, 0.3));
+      will-change: transform;
+    }
+
+    @keyframes rock {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    /* 漂浮的 Zzz */
+    .zzz {
+      position: fixed;
+      color: var(--text-secondary);
+      font-weight: bold;
+      opacity: 0;
+      animation: floatZ 4s infinite ease-in-out;
+      pointer-events: none;
+      z-index: 0;
+      font-size: clamp(1rem, 3vw, 2rem);
+    }
+
+    .zzz:nth-child(1) { left: 10%; top: 70%; animation-delay: 0s; }
+    .zzz:nth-child(2) { left: 80%; top: 30%; animation-delay: 1.3s; }
+    .zzz:nth-child(3) { left: 50%; top: 20%; animation-delay: 2.6s; }
+    .zzz:nth-child(4) { left: 85%; top: 60%; animation-delay: 0.8s; }
+
+    @keyframes floatZ {
+      0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0) rotate(-10deg);
+      }
+      20% {
+        opacity: 0.8;
+      }
+      80% {
+        opacity: 0.3;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-15vh) translateX(5vw) rotate(10deg);
+      }
+    }
+
+    /* 按钮 */
+    .btn-sleep {
+      background: linear-gradient(135deg, var(--link) 0%, var(--text-secondary) 100%);
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(42, 195, 222, 0.3);
+      min-height: 44px;
+      min-width: 44px;
+      touch-action: manipulation;
+    }
+
+    .btn-sleep:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(42, 195, 222, 0.5);
+    }
+
+    .btn-sleep:active {
+      transform: translateY(0);
+      box-shadow: 0 2px 10px rgba(42, 195, 222, 0.3);
+    }
+
+    .btn-secondary {
+      min-height: 44px;
+      min-width: 44px;
+      touch-action: manipulation;
+      transition: all 0.2s ease;
+    }
+
+    .btn-secondary:active {
+      background-color: var(--bg-secondary);
+      transform: scale(0.98);
+    }
+
+    /* 固定底部版权栏 */
+    .footer-fixed {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      /* 适配 iPhone 底部横条 */
+      padding-bottom: env(safe-area-inset-bottom);
+      /* 渐变背景，防止文字与内容重叠 */
+      background: linear-gradient(to top, 
+        rgba(26, 27, 38, 1) 0%, 
+        rgba(26, 27, 38, 0.95) 60%, 
+        rgba(26, 27, 38, 0) 100%);
+    }
+
+    /* 折叠屏 */
+    @media (max-width: 360px) {
+      .sleeping-404 { font-size: 2.5rem; letter-spacing: -0.05em; }
+      .moon { font-size: 2rem; }
+      .title-text { font-size: 1.25rem; }
+      .subtitle-text { font-size: 0.875rem; }
+      .btn-sleep { padding: 0.75rem 1.5rem; font-size: 0.875rem; width: 100%; justify-content: center; }
+    }
+
+    /* 手机横屏 */
+    @media (max-height: 500px) and (orientation: landscape) {
+      .moon { font-size: 2rem; margin-bottom: 0.5rem; }
+      .sleeping-404 { font-size: 3.5rem; }
+      .title-text { font-size: 1.25rem; margin-bottom: 0.25rem; }
+      .subtitle-text { font-size: 0.875rem; margin-bottom: 0.5rem; }
+      .zzz { display: none; }
+      /* 横屏时减少body底部padding */
+      body { padding-bottom: 60px; }
+      .footer-fixed { padding-top: 0.5rem; }
+    }
+
+    /* iPad */
+    @media (min-width: 768px) and (max-width: 1024px) {
+      .sleeping-404 { font-size: 7rem; }
+      .moon { font-size: 3.5rem; }
+    }
+
+    /* 折叠屏展开 */
+    @media (min-width: 700px) and (max-width: 850px) {
+      .sleeping-404 { font-size: 6rem; }
+    }
+
+    /* 减少动画 */
+    @media (prefers-reduced-motion: reduce) {
+      .sleeping-404, .moon, .zzz { animation: none; }
+    }
+
+    /* 触摸设备优化 */
+    @media (hover: none) {
+      .btn-sleep:hover { transform: none; }
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center relative">
+  <!-- 背景 Zzz -->
+  <div class="zzz">Z</div>
+  <div class="zzz">z</div>
+  <div class="zzz">Z</div>
+  <div class="zzz">💤</div>
+
+  <!-- 主内容区 -->
+  <div class="w-full max-w-2xl mx-auto px-4 py-8 text-center relative z-10">
+    <div class="moon mb-2 md:mb-4">🌙</div>
+    <div class="sleeping-404 mb-2">404</div>
+    
+    <h1 class="title-text text-xl sm:text-2xl md:text-3xl font-bold mb-2 text-[#C0CAF5]">
+      页面睡着了
+    </h1>
+    
+    <p class="subtitle-text text-base sm:text-lg text-[#7AA2F7] mb-2 font-medium px-2">
+      这个链接大概是去睡觉觉了 💤
+    </p>
+    
+    <p class="text-xs sm:text-sm text-[#565F89] mb-8">
+      错误代码：SLEEPING_BEAUTY_NOT_FOUND
+    </p>
+
+    <!-- 按钮组 -->
+    <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center px-4 sm:px-0">
+      <a href="/" class="btn-sleep px-6 sm:px-8 py-3 rounded-full text-[#1A1B26] font-bold text-base sm:text-lg 
+                         inline-flex items-center justify-center gap-2 w-full sm:w-auto">
+        <span>😴</span>
+        <span>叫醒它并返回首页</span>
+      </a>
+      
+      <button onclick="history.back()" class="btn-secondary px-6 sm:px-8 py-3 border border-[#414868] rounded-full 
+                     text-[#7AA2F7] text-sm sm:text-base w-full sm:w-auto">
+        ← 返回上一页
+      </button>
+    </div>
+  </div>
+
+  <!-- 固定在底部的版权栏 -->
+  <div class="footer-fixed">
+    <div class="text-center py-4 sm:py-6 text-xs text-[#565F89] px-4">
+      <p class="mb-1">Nerun Studio · <span class="line-through opacity-50">Nerun</span>工作室 · 2026</p>
+      <p class="opacity-50 text-[10px] sm:text-xs">"不是睡觉觉工作室？"</p>
+    </div>
+  </div>
+
+  <script>
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+    
+    document.addEventListener('click', function(e) {
+      const zzz = document.createElement('div');
+      zzz.textContent = ['Z', 'z', '💤'][Math.floor(Math.random() * 3)];
+      zzz.style.cssText = `
+        position: fixed;
+        left: ${e.clientX}px;
+        top: ${e.clientY}px;
+        color: #7AA2F7;
+        font-size: ${isTouchDevice ? '1.25rem' : '1.5rem'};
+        font-weight: bold;
+        pointer-events: none;
+        z-index: 100;
+        animation: floatZ 2s ease-out forwards;
+      `;
+      document.body.appendChild(zzz);
+      setTimeout(() => zzz.remove(), 2000);
+    });
+
+    // 防止iOS双击缩放
+    let lastTouchEnd = 0;
+    document.addEventListener('touchend', function(e) {
+      const now = Date.now();
+      if (now - lastTouchEnd <= 300) e.preventDefault();
+      lastTouchEnd = now;
+    }, false);
+  </script>
+</body>
+</html>
