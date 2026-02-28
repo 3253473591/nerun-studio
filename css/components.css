@@ -21,7 +21,82 @@
    }
    
    /* ========================================
-      🎯 Boss卡片特殊样式（全新设计）
+      简介行截断工具类
+      ======================================== */
+   
+   /* 员工：3行截断 */
+   .bio-clamp-3 {
+     display: -webkit-box;
+     line-clamp: 3;
+     -webkit-line-clamp: 3;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+   }
+   
+   /* Boss：4行截断 */
+   .bio-clamp-4 {
+     display: -webkit-box;
+     line-clamp: 4;
+     -webkit-line-clamp: 4;
+     -webkit-box-orient: vertical;
+     overflow: hidden;
+   }
+   
+   /* ========================================
+      普通成员卡片 —— 简介浮层
+      展开时绝对定位到卡片上方，不撑高卡片
+      ======================================== */
+   
+   /* 锚点容器：作为浮层的定位基准 */
+   .bio-expand-anchor {
+     position: relative;
+   }
+   
+   /* 浮层本体：从底部锚点向上扩展 */
+   .bio-float-panel {
+     position: absolute;
+     /* 底部对齐 bio-expand-anchor 的底边，然后向上撑开 */
+     bottom: 0;
+     left: 50%;
+     transform: translateX(-50%);
+     width: calc(100% + 2rem);   /* 比卡片内容区略宽，视觉上更完整 */
+     z-index: 20;
+   
+     /* 背景与卡片一致，加阴影区分层次 */
+     background-color: var(--bg-secondary);
+     border: 1px solid rgba(65, 72, 104, 0.6);
+     border-radius: 0.75rem;
+     padding: 1rem;
+     box-shadow:
+       0 -8px 32px rgba(0, 0, 0, 0.5),
+       0 4px 16px rgba(0, 0, 0, 0.3);
+   
+     /* 文字左对齐，方便阅读 */
+     text-align: left;
+   
+     /* 最大高度限制，内容过长时可滚动 */
+     max-height: 60vh;
+     overflow-y: auto;
+     overscroll-behavior: contain;
+   
+     /* 自定义滚动条（Webkit） */
+     scrollbar-width: thin;
+     scrollbar-color: var(--bg-tertiary) transparent;
+   }
+   
+   .bio-float-panel::-webkit-scrollbar {
+     width: 4px;
+   }
+   .bio-float-panel::-webkit-scrollbar-track {
+     background: transparent;
+   }
+   .bio-float-panel::-webkit-scrollbar-thumb {
+     background-color: var(--bg-tertiary);
+     border-radius: 2px;
+   }
+   
+   /* ========================================
+      🎯 Boss卡片特殊样式
       ======================================== */
    .boss-card {
      background: linear-gradient(
@@ -30,7 +105,7 @@
        rgba(245, 158, 11, 0.04) 50%,
        var(--bg-secondary) 100%
      );
-     box-shadow: 
+     box-shadow:
        0 4px 24px rgba(245, 158, 11, 0.12),
        inset 0 1px 0 rgba(255, 255, 255, 0.05);
      position: relative;
@@ -38,11 +113,11 @@
    
    /* Boss头像光晕动画 */
    @keyframes boss-pulse {
-     0%, 100% { 
+     0%, 100% {
        box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4), 0 0 20px rgba(245, 158, 11, 0.3);
        transform: scale(1);
      }
-     50% { 
+     50% {
        box-shadow: 0 0 0 8px rgba(245, 158, 11, 0), 0 0 30px rgba(245, 158, 11, 0.5);
        transform: scale(1.02);
      }
@@ -50,6 +125,11 @@
    
    .boss-avatar-glow {
      animation: boss-pulse 3s ease-in-out infinite;
+   }
+   
+   /* Boss头像整体包裹层过渡（展开时淡出）*/
+   .boss-avatar-wrap {
+     transition: opacity 0.5s ease, transform 0.5s ease;
    }
    
    /* 头像点击遮罩层 */
@@ -116,7 +196,6 @@
      .card-lift:active {
        transform: scale(0.98);
      }
-     /* 移动端Boss卡片点击反馈 */
      .boss-card:active {
        background: linear-gradient(
          135deg,
@@ -138,74 +217,45 @@
    }
    
    /* ========================================
-      📱 响应式优化（移动端优先）
+      📱 响应式优化
       ======================================== */
    
-   /* 小屏手机优化（iPhone SE等） */
    @media (max-width: 375px) {
-     .boss-card {
-       padding: 1rem;
-     }
-     .boss-card img {
-       width: 6rem;
-       height: 6rem;
-     }
+     .boss-card { padding: 1rem; }
+     .boss-card img { width: 6rem; height: 6rem; }
+     /* 超小屏浮层宽度收窄 */
+     .bio-float-panel { width: calc(100% + 1rem); }
    }
    
-   /* 折叠屏适配 - 展开态 */
    @media (screen-spanning: single-fold-vertical) {
-     .boss-card {
-       grid-column: span 2;
-     }
+     .boss-card { grid-column: span 2; }
    }
    
-   /* 折叠屏适配 - 折叠态（窄屏） */
    @media (screen-spanning: none) and (max-width: 400px) {
-     .boss-card .line-clamp-3 {
-       -webkit-line-clamp: 4;
-       line-clamp: 4;
-     }
+     .bio-clamp-4 { -webkit-line-clamp: 4; line-clamp: 4; }
    }
    
-   /* iPad竖屏优化 */
    @media (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
-     .boss-card {
-       padding: 1.5rem;
-     }
+     .boss-card { padding: 1.5rem; }
    }
    
-   /* iPad横屏 - 双栏时Boss横跨 */
    @media (min-width: 1024px) and (orientation: landscape) {
-     .boss-card {
-       padding: 1.5rem;
-     }
+     .boss-card { padding: 1.5rem; }
    }
    
-   /* 超宽屏限制 */
    @media (min-width: 1920px) {
-     main {
-       max-width: 1400px;
-     }
-     .boss-card {
-       padding: 2rem;
-     }
+     main { max-width: 1400px; }
+     .boss-card { padding: 2rem; }
    }
    
-   /* 暗黑模式高对比度 */
    @media (prefers-contrast: high) {
-     .boss-card {
-       border-left-width: 6px;
-       border-left-color: #fbbf24;
-     }
+     .boss-card { border-left-width: 6px; border-left-color: #fbbf24; }
    }
    
-   /* 减少动画（无障碍支持） */
+   /* 减少动画（无障碍） */
    @media (prefers-reduced-motion: reduce) {
-     .boss-avatar-glow {
-       animation: none;
-       box-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
-     }
-     .card-lift {
-       transition: none;
-     }
+     .boss-avatar-glow { animation: none; box-shadow: 0 0 20px rgba(245, 158, 11, 0.4); }
+     .card-lift { transition: none; }
+     .bio-expand-wrap * { transition: none !important; }
+     .bio-float-panel { transition: none !important; }
    }

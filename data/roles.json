@@ -22,7 +22,9 @@
         ]
       },
       { "id": "lyrics", "name": "作词", "color": "#9ECE6A", "sortOrder": 5 },
-      { "id": "harmony", "name": "和声编写", "color": "#73DACA", "sortOrder": 6 }
+      { "id": "harmony", "name": "和声编写", "color": "#73DACA", "sortOrder": 6 },
+      { "id": "cv", "name": "CV", "color": "#FF8AB5", "sortOrder": 7 },
+      { "id": "singer", "name": "唱见", "color": "#A8B9FF", "sortOrder": 8 }
     ]
   },
   {
