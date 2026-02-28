@@ -145,7 +145,7 @@
     "roleIds": ["composition", "arrangement", "tuning"],
     "softwares": ["sv", "ace", "vocaloid"],
     "avatar": "data/images/members/天宸.jpg",
-    "bio": "作曲/编曲/调校，擅长VOCALOID/ACE Studio/Synthesizer V等多引擎调校及多种风格\n编曲",
+    "bio": "作曲/编曲/调校，擅长VOCALOID/ACE Studio/Synthesizer V等多引擎调校及多种风格编曲",
     "sortOrder": 12,
     "homepages": [
       {"name": "哔哩哔哩", "url": "https://space.bilibili.com/1771185279"},
