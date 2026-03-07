@@ -13,15 +13,8 @@ git clone https://github.com/3253473591/nerun-studio.git
 
 ## 文件说明
 
-### 1. `members.json`
+### members.json
 **作用**：存放所有成员的个人资料。
-
-**里面有**：
-- 每个成员的姓名、头像照片路径
-- 擅长技能
-- 使用的软件
-- 个人简介
-- 主页链接
 
 **示例条目**：
 ```json
@@ -41,7 +34,7 @@ git clone https://github.com/3253473591/nerun-studio.git
 }
 ```
 
-### 2. `roles.json`
+### roles.json
 **作用**：定义部门、职位、软件分类。
 
 **结构**：
@@ -50,7 +43,7 @@ git clone https://github.com/3253473591/nerun-studio.git
 - **视频部**：混剪、PV制作、AE特效、字幕特效
 - **美术部**：立绘/插画
 
-### 3. `site-config.json`
+### site-config.json
 **作用**：网站顶部的标题、联系方式等公共信息。
 
 **可修改内容**：
@@ -59,15 +52,12 @@ git clone https://github.com/3253473591/nerun-studio.git
 - 微信号、邮箱（点击页面顶部按钮可直接复制）
 - 负责人特殊标记的颜色
 
-### 4. `ui-text.json`
+### 4. ui-text.json
 **作用**：页面上的各种提示文字，像展厅里的指示牌。
 
 **包含**：
 - "加载失败"时的提示
 - "微信号已复制"的提示
-
-### 5. `whitelist.json`
-**作用**：微信内点击链接时，白名单内的网站（如 B站、qq.com）会直接跳转，其他网站会弹出确认框。
 
 ---
 
@@ -105,7 +95,7 @@ git clone https://github.com/3253473591/nerun-studio.git
 直接在 `members.json` 中找到对应名字，修改相应文字即可。
 
 **特别提示 - 个人简介加链接**：
-如果想在简介里插入 B站视频链接（如代表作），可以用这种格式：
+如果想在简介里插入代表作，可以用这种格式：
 ```
 代表作：[视频标题](https://www.bilibili.com/video/BVxxxxx)
 ```
@@ -113,38 +103,24 @@ git clone https://github.com/3253473591/nerun-studio.git
 
 ### 调整排序
 
-修改 `sortOrder` 的数字：
-- **负责人**：设为 `0`（最前面，且有特殊金色边框）
+修改sortOrder的数字：
+- **负责人**：设为0（最前面，且有特殊金色边框）
 - **其他成员**：按加入时间或重要性，数字越小越靠前
 
 ### 更换联系方式
 
-修改 `site-config.json` 中的：
-- `contact.wechat.id`：微信号（NeurnOfficial）
-- `contact.email.address`：邮箱地址（neruuu@qq.com）
+修改site-config.json：
+- `contact.wechat.id`：微信号
+- `contact.email.address`：邮箱地址
 
 修改后，页面顶部的"微信""邮箱"按钮点击后会自动复制新号码。
 
 ### 增减部门或职位
 
 修改 `roles.json`：
-- **新增部门**：复制一个现有部门块，修改 `id`、`name` 和 `roles` 列表
-- **新增职位**：在对应部门的 `roles` 数组中添加新条目，选择一个颜色代码（如 `"#FF6B6B"`）
+- **新增部门**：复制一个现有部门块，修改 id、name和roles列表
+- **新增职位**：在对应部门的 `roles` 数组中添加新条目，选择一个颜色代码
 
----
+### 图片存放位置
 
-## 重要提醒
-
-### 1. 图片要求
-- **尺寸**：建议 400×400 像素以上的正方形
-- **格式**：JPG 或 PNG
-- **存放位置**：`images/members/`
-
-### 2. 链接格式
-- 必须以 `https://` 开头（如 `https://space.bilibili.com/...`）
-- 不要遗漏末尾的斜杠或参数
-
-### 3. 标点符号规则（极易出错！）
-- **所有符号必须是英文半角**：`" "` 双引号、`,` 逗号、`[ ]` 方括号、`{ }` 花括号
-- **每行末尾的逗号**：除了最后一个条目，每个成员块后面都要加英文逗号 `,`
-- **引号成对出现**：`"name": "张三"`，前后引号必须完整
+- 成员头像：images/members/
